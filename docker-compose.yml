@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    environment:
+      NODE_ENV: production
+      NODE_OPTIONS: --openssl-legacy-provider # Workaround für ein webpack Bug mit der aktuellen node-Version (https://github.com/webpack/webpack/issues/14532)
+    ports:
+      - "8082:80"
+    networks:
+      - "news-articles-backend_default"
+
+networks:
+  news-articles-backend_default:
+    external: true

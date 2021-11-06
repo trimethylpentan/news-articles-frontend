@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// @flow
+import 'bootstrap/dist/css/bootstrap.min.css'
+import React from "react";
+import {useEffect, useState} from "react";
+import Articles from "./components/Articles";
+import {Outlet} from "react-router-dom";
+import ArticlesNavbar from "./components/ArticlesNavbar";
+import {Container} from "react-bootstrap";
 
-function App() {
+function App(): React$Element<any> {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8080/news-article/list')
+      .then((response) => response.json())
+      .then((result) => setArticles(result['news-articles']));
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ArticlesNavbar/>
+      <Container>
+        <h1>Startseite</h1>
+        <Articles articles={articles}/>
+      </Container>
+    </>
   );
 }
 
