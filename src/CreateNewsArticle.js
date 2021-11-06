@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import {Alert} from "react-bootstrap";
 import ArticleForm from "./components/form/ArticleForm";
 import {useNavigate} from "react-router-dom";
+import {useBaseUrl} from "./hooks/base-url";
 
 function CreateNewsArticle(): React$Element<any> {
   const [success, setSuccess] = useState();
@@ -13,10 +14,12 @@ function CreateNewsArticle(): React$Element<any> {
 
   const navigate = useNavigate();
 
+  const baseUrl = useBaseUrl();
+
   const saveChanges = (event: Event) => {
     setError(null);
     event.preventDefault();
-    fetch('http://localhost:8080/news-article/create', {
+    fetch(`${baseUrl}/news-article/create`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

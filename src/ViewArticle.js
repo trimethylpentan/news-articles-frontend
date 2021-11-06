@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import type {ArticleValues} from "./types/ArticleValues";
 import {Alert} from "react-bootstrap";
+import {useBaseUrl} from "./hooks/base-url";
 
 type Params = {
   articleId: number,
@@ -14,8 +15,10 @@ function ViewArticle(): React$Element<any> {
   const [article: ArticleValues, setArticle] = useState(null);
   const [found: boolean, isFound] = useState(true);
 
+  const baseUrl = useBaseUrl();
+
   useEffect(() => {
-    fetch(`http://localhost:8080/news-article/${params.articleId}`)
+    fetch(`${baseUrl}/news-article/${params.articleId}`)
       .then((response) => response.json())
       .then((result) => {
         const newsArticle = result['news-article'];

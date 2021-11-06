@@ -5,6 +5,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {Alert} from "react-bootstrap";
 import ArticleForm from "./components/form/ArticleForm";
 import type {ArticleValues} from "./types/ArticleValues";
+import {useBaseUrl} from "./hooks/base-url";
 
 type Params = {
   articleId: 'number',
@@ -20,10 +21,12 @@ function EditNewsArticle(): React$Element<any> {
 
   const navigate = useNavigate();
 
+  const baseUrl = useBaseUrl();
+
   const saveChanges = (event: Event) => {
     setError(null);
     event.preventDefault();
-    fetch(`http://localhost:8080/news-article/edit`, {
+    fetch(`${baseUrl}/news-article/edit`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -50,7 +53,7 @@ function EditNewsArticle(): React$Element<any> {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:8080/news-article/${params.articleId}`)
+    fetch(`${baseUrl}/news-article/${params.articleId}`)
       .then((response) => response.json())
       .then((result) => {
         if (!result.found) {

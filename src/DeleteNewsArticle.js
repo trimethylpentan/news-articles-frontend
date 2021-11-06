@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import {Alert, Container} from "react-bootstrap";
 import DeleteArticleForm from "./components/form/DeleteArticleForm";
 import {useNavigate, useParams} from "react-router-dom";
+import {useBaseUrl} from "./hooks/base-url";
 
 function DeleteNewsArticle(): React$Element<any> {
   const params = useParams();
@@ -13,11 +14,13 @@ function DeleteNewsArticle(): React$Element<any> {
 
   const navigate = useNavigate();
 
+  const baseUrl = useBaseUrl();
+
   const onDelete = (event) => {
     event.preventDefault();
     setError(null);
 
-    fetch('http://localhost:8080/news-article/delete', {
+    fetch(`${baseUrl}/news-article/delete`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

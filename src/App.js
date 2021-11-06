@@ -5,12 +5,14 @@ import {useEffect, useState} from "react";
 import Articles from "./components/Articles";
 import ArticlesNavbar from "./components/ArticlesNavbar";
 import {Container} from "react-bootstrap";
+import {useBaseUrl} from "./hooks/base-url";
 
 function App(): React$Element<any> {
   const [articles, setArticles] = useState([]);
+  const baseUrl = useBaseUrl();
 
   useEffect(() => {
-    fetch('http://localhost:8080/news-article/list')
+    fetch(`${baseUrl}/news-article/list`)
       .then((response) => response.json())
       .then((result) => setArticles(result['news-articles']));
   }, [])
