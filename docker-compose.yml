@@ -1,14 +1,15 @@
 version: '3.8'
 
 services:
-  nginx:
+  nginx-frontend:
     build:
       context: .
       dockerfile: docker/nginx/Dockerfile
+      args:
+        # Die URL, über die der Webserver vom Backend erreichbar ist.
+        base_url: http://localhost:8080
     environment:
       NODE_ENV: production
-      NODE_OPTIONS: --openssl-legacy-provider # Workaround für ein webpack Bug mit der aktuellen node-Version (https://github.com/webpack/webpack/issues/14532)
-      REACT_APP_BACKEND_BASE_URL: news-article-backend_nginx
     ports:
       - "8082:80"
     networks:
