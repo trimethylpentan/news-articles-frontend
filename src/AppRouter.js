@@ -4,6 +4,7 @@ import ViewArticle from "./ViewArticle";
 import NewsArticles from "./NewsArticles";
 import CreateNewsArticle from "./CreateNewsArticle";
 import EditNewsArticle from "./EditNewsArticle";
+import DeleteNewsArticle from "./DeleteNewsArticle";
 
 function Router() {
   return <BrowserRouter>
@@ -13,6 +14,7 @@ function Router() {
         <Route path={':articleId'} element={<ViewArticle/>}/>
         <Route path={'create'} element={<CreateNewsArticle/>}/>
         <Route path={'edit/:articleId'} element={<EditNewsArticle/>}/>
+        <Route path={'delete/:articleId'} element={<DeleteNewsArticle/>}/>
     </Route>
     </Routes>
   </BrowserRouter>

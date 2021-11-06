@@ -6,7 +6,7 @@ import type {ArticleValues} from "./types/ArticleValues";
 import {Alert} from "react-bootstrap";
 
 type Params = {
-  articleId: 'number',
+  articleId: number,
 }
 
 function ViewArticle(): React$Element<any> {

@@ -25,7 +25,7 @@ function Articles(props: Props): React$Element<any> {
   }
 
   return (
-    <Container fluid>
+    <Container fluid className="mb-5">
       {mappedArticles}
     </Container>
   )
