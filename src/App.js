@@ -17,7 +17,7 @@ function App(): React$Element<any> {
 
   return (
     <>
-      <ArticlesNavbar/>
+      <ArticlesNavbar articleId={null}/>
       <Container>
         <h1>Startseite</h1>
         <Articles articles={articles}/>

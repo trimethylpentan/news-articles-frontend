@@ -20,7 +20,7 @@ function ViewArticle(): React$Element<any> {
       .then((result) => {
         const newsArticle = result['news-article'];
         newsArticle.createdDate = new Date(newsArticle.createdDate);
-        setArticle(result['news-article']);
+        setArticle(newsArticle);
         isFound(result.found);
       });
   }, [params.articleId])

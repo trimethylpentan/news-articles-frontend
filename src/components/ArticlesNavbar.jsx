@@ -3,7 +3,13 @@
 import React from "react";
 import {Container, Nav, Navbar} from "react-bootstrap";
 
-function ArticlesNavbar(): React$Element<any> {
+type Props = {
+  articleId: ?number
+}
+
+function ArticlesNavbar(props: Props): React$Element<any> {
+  const {articleId} = props;
+
   return <Navbar bg="light" expand="lg" className={"mb-2"}>
     <Container>
       <Navbar.Brand href={'/'}>News-Artikel</Navbar.Brand>
@@ -12,6 +18,7 @@ function ArticlesNavbar(): React$Element<any> {
         <Nav className="me-auto">
           <Nav.Link href="/">Startseite</Nav.Link>
           <Nav.Link href="/news-articles/create">Artikel erstellen</Nav.Link>
+          {articleId && <Nav.Link href={`/news-articles/edit/${articleId}`}>Artikel bearbeiten</Nav.Link>}
         </Nav>
       </Navbar.Collapse>
     </Container>

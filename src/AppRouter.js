@@ -3,6 +3,7 @@ import App from "./App";
 import ViewArticle from "./ViewArticle";
 import NewsArticles from "./NewsArticles";
 import CreateNewsArticle from "./CreateNewsArticle";
+import EditNewsArticle from "./EditNewsArticle";
 
 function Router() {
   return <BrowserRouter>
@@ -11,6 +12,7 @@ function Router() {
       <Route path={'news-articles'} element={<NewsArticles/>}>
         <Route path={':articleId'} element={<ViewArticle/>}/>
         <Route path={'create'} element={<CreateNewsArticle/>}/>
+        <Route path={'edit/:articleId'} element={<EditNewsArticle/>}/>
     </Route>
     </Routes>
   </BrowserRouter>
