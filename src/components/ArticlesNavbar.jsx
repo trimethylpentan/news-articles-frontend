@@ -11,6 +11,7 @@ function ArticlesNavbar(): React$Element<any> {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link href="/">Startseite</Nav.Link>
+          <Nav.Link href="/news-articles/create">Artikel erstellen</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>

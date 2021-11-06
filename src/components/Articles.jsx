@@ -14,12 +14,12 @@ function Articles(props: Props): React$Element<any> {
 
   const mappedArticles = [];
   for (let i = 0; i < articles.length; i += 2) {
-    mappedArticles.push(<Row>
+    mappedArticles.push(<Row className={"mt-4"} key={`row-${i}`}>
       <Col>
-        <Article id={`article-${i}`} article={articles[i]}/>
+        <Article article={articles[i]}/>
       </Col>
       <Col>
-        <Article id={`article-${i + 1}`} article={articles[i + 1] || null}/>
+        <Article article={articles[i + 1] || null}/>
       </Col>
     </Row>)
   }

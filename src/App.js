@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import React from "react";
 import {useEffect, useState} from "react";
 import Articles from "./components/Articles";
-import {Outlet} from "react-router-dom";
 import ArticlesNavbar from "./components/ArticlesNavbar";
 import {Container} from "react-bootstrap";
 

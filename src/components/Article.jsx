@@ -15,7 +15,7 @@ function Article(props: Props): ?React$Element<any> {
   }
 
   const {title, text, id} = props.article;
-  return <Card>
+  return <Card style={{height: '100%'}}>
     <Card.Body>
       <Link to={`/news-articles/${id}`} style={{color: 'inherit', textDecoration: 'none'}}>
         <Card.Title>{title}</Card.Title>

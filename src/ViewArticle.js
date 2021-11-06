@@ -3,6 +3,7 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import type {ArticleValues} from "./types/ArticleValues";
+import {Alert} from "react-bootstrap";
 
 type Params = {
   articleId: 'number',
@@ -24,10 +25,8 @@ function ViewArticle(): React$Element<any> {
       });
   }, [params.articleId])
 
-  console.log(article);
-  // TODO: error
   if (!found || article === null) {
-    return <p>Muchos Error</p>;
+    return <Alert>Der gewünschte Artikel konnte leider nicht gefunden werden</Alert>;
   }
 
   const {title, text, createdDate} = article;
