@@ -10,7 +10,7 @@ type Params = {
   articleId: number,
 }
 
-function ViewArticle(): React$Element<any> {
+function ViewArticle(): ?React$Element<any> {
   const params: Params = useParams();
   const [article: ArticleValues, setArticle] = useState(null);
   const [found: boolean, isFound] = useState(true);
@@ -29,8 +29,12 @@ function ViewArticle(): React$Element<any> {
       });
   }, [params.articleId])
 
-  if (!found || article === null) {
+  if (!found) {
     return <Alert variant={'danger'}>Der gewünschte Artikel konnte leider nicht gefunden werden</Alert>;
+  }
+
+  if (!article) {
+    return null;
   }
 
   const {title, text, createdDate} = article;
