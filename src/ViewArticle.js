@@ -17,6 +17,7 @@ function ViewArticle(): React$Element<any> {
 
   const baseUrl = useBaseUrl();
 
+  // Den aktuellen Artikel von der API holen
   useEffect(() => {
     fetch(`${baseUrl}/news-article/${params.articleId}`)
       .then((response) => response.json())
@@ -29,7 +30,7 @@ function ViewArticle(): React$Element<any> {
   }, [params.articleId])
 
   if (!found || article === null) {
-    return <Alert>Der gewünschte Artikel konnte leider nicht gefunden werden</Alert>;
+    return <Alert variant={'danger'}>Der gewünschte Artikel konnte leider nicht gefunden werden</Alert>;
   }
 
   const {title, text, createdDate} = article;

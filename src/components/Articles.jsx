@@ -12,6 +12,7 @@ type Props = {
 function Articles(props: Props): React$Element<any> {
   const {articles} = props;
 
+  // Immer 2 Artikel nebeneinander in einer Row darstellen
   const mappedArticles = [];
   for (let i = 0; i < articles.length; i += 2) {
     mappedArticles.push(<Row className={"mt-4"} key={`row-${i}`}>

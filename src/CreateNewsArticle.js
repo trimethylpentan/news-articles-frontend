@@ -36,7 +36,8 @@ function CreateNewsArticle(): React$Element<any> {
           setError(response.error || 'Es ist ein Fehler aufgetreten');
           return;
         }
-        
+
+        // Nach 1s leiten wir den User auf die Startseite zurück
         setTimeout(() => navigate('/'), 1000);
       })
       .catch((error) => {

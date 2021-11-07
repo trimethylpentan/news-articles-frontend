@@ -8,6 +8,7 @@ import {Container} from "react-bootstrap";
 function NewsArticles(): React$Element<any> {
   const params = useParams();
 
+  // In das "Outlet" wird die aktuelle Child-Route gerendert
   return <>
     <ArticlesNavbar articleId={params.articleId || null}/>
     <Container>

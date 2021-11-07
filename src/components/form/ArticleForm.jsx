@@ -11,6 +11,7 @@ type Props = {
   onSubmit: Function,
 }
 
+// Diese Komponente wird zum Erstellen und Bearbeiten von Artikeln verwendet
 function ArticleForm(props: Props): React$Element<any> {
   return <Form>
     <Form.Group className={'mb-3'}>

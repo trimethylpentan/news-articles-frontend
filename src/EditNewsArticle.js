@@ -23,6 +23,7 @@ function EditNewsArticle(): React$Element<any> {
 
   const baseUrl = useBaseUrl();
 
+  // Diese Funktion wird aufgerufen, wenn das Formular abgesendet wird
   const saveChanges = (event: Event) => {
     setError(null);
     event.preventDefault();
@@ -52,6 +53,7 @@ function EditNewsArticle(): React$Element<any> {
       })
   }
 
+  // Den aktuellen Artikel von der API laden
   useEffect(() => {
     fetch(`${baseUrl}/news-article/${params.articleId}`)
       .then((response) => response.json())

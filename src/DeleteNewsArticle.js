@@ -16,6 +16,7 @@ function DeleteNewsArticle(): React$Element<any> {
 
   const baseUrl = useBaseUrl();
 
+  // Diese Funktion wird aufgerufen, wenn der User auf "löschen" klickt
   const onDelete = (event) => {
     event.preventDefault();
     setError(null);
@@ -36,6 +37,7 @@ function DeleteNewsArticle(): React$Element<any> {
           return;
         }
 
+        // Nach 1s leiten wir auf die Startseite zurück
         setSuccess(true);
         setTimeout(() => navigate('/'), 1000);
       })
