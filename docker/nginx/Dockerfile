@@ -16,5 +16,7 @@ RUN npm install
 RUN npm run build
 
 FROM nginx:1.20
+
+COPY --chown=www-data:www-data docker/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 # Die build-Files aus dem node-Container kopieren. Diese können einfach als statische Dateien von nginx ausgegeben werden
 COPY --chown=www-data:www-data --from=node /app/build /usr/share/nginx/html
